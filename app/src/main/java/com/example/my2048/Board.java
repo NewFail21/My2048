@@ -1,11 +1,18 @@
 package com.example.my2048;
 
+import android.os.Bundle;
 import android.util.Pair;
+import android.view.View;
+import android.widget.Button;
+
+import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.Random;
 
 public class Board {
+
+
     private int[][] fields;
     private final int[] randomValues = new int[]{2, 2, 2, 2, 2, 2, 2, 4, 4, 4};
     private int size;
@@ -16,6 +23,8 @@ public class Board {
 
     private int score = 0;
     public boolean isGameOver = false;
+    Button buttonback1;
+
 
     public Board(int[][] fields) {
         this.fields = fields;
