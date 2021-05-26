@@ -4,6 +4,8 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -15,6 +17,9 @@ public class GameView extends View {
 
     private float downPosX, downPosY, upPosX, upPosY;
     public static final float MIN_SWIPE_DIST = 100;
+
+    private Paint paint;
+    Bitmap bitmap;
 
     public interface OnGameOver{
         public void onGameOver(int score);
@@ -51,6 +56,8 @@ public class GameView extends View {
         bitmapTreeMap.put(2048, BitmapFactory.decodeResource(getResources(), R.drawable.num2048));
 
         boardView = new BoardView(board, bitmapTreeMap);
+        paint = new Paint();
+        bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.background);
     }
 
     @Override
@@ -59,6 +66,9 @@ public class GameView extends View {
         if (board.isGameOver){
             onGameOver.onGameOver(board.getScore());
         }
+        canvas.drawBitmap(bitmap,
+                new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight()),
+                new Rect(0, 0, getWidth(), getHeight()), paint);
         boardView.draw(canvas);
     }
 

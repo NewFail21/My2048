@@ -44,12 +44,16 @@ public class BoardView {
         }
 
         int fieldSize = (Math.min(canvas.getHeight(), canvas.getWidth()) - MARGIN * 2) / board.getSize();
+
+        int marginX = (canvas.getWidth() - board.getSize() * fieldSize) / 2;
+        int marginY = (canvas.getHeight() - board.getSize() * fieldSize) / 2;
+
         textPaint.setTextSize(fieldSize / 2);
-        canvas.drawRect(new Rect(0, 0, canvas.getWidth(), canvas.getHeight()), boardPaint);
+        //canvas.drawRect(new Rect(0, 0, canvas.getWidth(), canvas.getHeight()), boardPaint);
         for (int i = 0; i < board.getSize(); i++){
             for(int j = 0; j < board.getSize(); j++){
-                int x = MARGIN + j * fieldSize;
-                int y = MARGIN + i * fieldSize;
+                int x = marginX + j * fieldSize;
+                int y = marginY + i * fieldSize;
                 canvas.drawRect(new Rect(
                         x, y, x + fieldSize, y + fieldSize), fieldPaint);
                 Bitmap bitmap = getBitmapByNumber(board.getFieldValue(j, i));

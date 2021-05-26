@@ -8,20 +8,23 @@
     <TextView
         android:layout_weight="1"
         android:id="@+id/place_tw"
-        android:textSize="20sp"
+        android:textSize="50sp"
         android:text="1"
+        android:textColor="@color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
     </TextView>
 
     <TextView
-        android:layout_weight="5"
         android:id="@+id/score_tw"
-        android:textSize="20sp"
+        android:layout_width="22dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="5"
         android:text="200"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:textColor="@color/black"
+        android:textSize="50sp"
+        >
 
     </TextView>
 
